@@ -2,6 +2,7 @@
 using ShopOnline.Api.Data;
 using ShopOnline.Api.Entities;
 using ShopOnline.Api.Repositories.Contracts;
+using ShopOnline.Models.Dtos;
 
 namespace ShopOnline.Api.Repositories
 {
@@ -31,9 +32,20 @@ namespace ShopOnline.Api.Repositories
                                 .SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<IEnumerable<Product>> GetProducts()
+        public async Task<IEnumerable<ProductDto>> GetProducts()
         {
-            return await this.dbContext.Products.Include(p => p.ProductCategory).ToListAsync();
+            return await this.dbContext.Products.Include(p => p.ProductCategory)
+                .Select(x => new ProductDto
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Description = x.Description,
+                    ImageURL = x.ImageURL,
+                    Price = x.Price,
+                    Quantity = x.Quantity,
+                    CategoryId = x.ProductCategory.Id,
+                    CategoryName = x.ProductCategory.Name
+                }).ToListAsync();
         }
     }
 }

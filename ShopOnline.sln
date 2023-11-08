@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnline.Web", "ShopOnlin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnline.Api", "ShopOnline.Api\ShopOnline.Api.csproj", "{2561FD24-DB71-4207-8622-DE281FA0324B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnline.Models", "ShopOnline.Models\ShopOnline.Models.csproj", "{EB8DF555-1A87-4BE3-B79A-11B8F2FB82B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2561FD24-DB71-4207-8622-DE281FA0324B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2561FD24-DB71-4207-8622-DE281FA0324B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2561FD24-DB71-4207-8622-DE281FA0324B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB8DF555-1A87-4BE3-B79A-11B8F2FB82B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB8DF555-1A87-4BE3-B79A-11B8F2FB82B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB8DF555-1A87-4BE3-B79A-11B8F2FB82B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB8DF555-1A87-4BE3-B79A-11B8F2FB82B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

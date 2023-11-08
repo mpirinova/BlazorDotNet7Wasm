@@ -1,10 +1,11 @@
 ﻿using ShopOnline.Api.Entities;
+using ShopOnline.Models.Dtos;
 
 namespace ShopOnline.Api.Repositories.Contracts
 {
     public interface IProductsRepository
     {
-        Task<IEnumerable<Product>> GetProducts();
+        Task<IEnumerable<ProductDto>> GetProducts();
 
         Task<IEnumerable<ProductCategory>> GetCategories();
 
