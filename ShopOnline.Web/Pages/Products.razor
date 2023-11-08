@@ -2,11 +2,11 @@
 
 @if(ProductsList is null)
 {
-    <h3>Loading products...</h3>
+    <DisplaySpinner />
 }
 else if(ErrorMessage != null)
 {
-    @* <DisplayError ErrorMessage="@ErrorMessage"></DisplayError> *@
+    <DisplayError ErrorMessage="@ErrorMessage"></DisplayError>
 }
 else
 {

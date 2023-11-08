@@ -2,7 +2,7 @@
 
 @if (Product is null && ErrorMessage is null)
 {
-    <h3>Loading product details...</h3>
+    <DisplaySpinner/>
 }
 else if (ErrorMessage != null)
 {
