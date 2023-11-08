@@ -25,11 +25,22 @@ namespace ShopOnline.Api.Repositories
             return await this.dbContext.ProductCategories.SingleOrDefaultAsync(c => c.Id == id);
         }
 
-        public async Task<Product> GetProduct(int id)
+        public async Task<ProductDto> GetProduct(int id)
         {
             return await this.dbContext.Products
-                                .Include(p => p.ProductCategory)
-                                .SingleOrDefaultAsync(p => p.Id == id);
+                .Include(p => p.ProductCategory)
+                .Select(x => new ProductDto
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Description = x.Description,
+                    ImageURL = x.ImageURL,
+                    Price = x.Price,
+                    Quantity = x.Quantity,
+                    CategoryId = x.ProductCategory.Id,
+                    CategoryName = x.ProductCategory.Name
+                })
+                .SingleOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<IEnumerable<ProductDto>> GetProducts()

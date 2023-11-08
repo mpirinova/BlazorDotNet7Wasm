@@ -32,7 +32,26 @@ namespace ShopOnline.Api.Controllers
             catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+            }
+        }
 
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<ProductDto>> GetProduct(int id)
+        {
+            try
+            {
+                var product = await this.productsRepository.GetProduct(id);
+
+                if (product is null)
+                {
+                    return BadRequest();
+                }
+
+                return Ok(product);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
             }
         }
     }
