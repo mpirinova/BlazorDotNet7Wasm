@@ -302,24 +302,28 @@ namespace ShopOnline.Api.Data
             {
                 Id = 1,
                 Name = "Beauty",
+                Icon = "fas fa-spa",
             });
 
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
                 Id = 2,
                 Name = "Furniture",
+                Icon = "fas fa-couch",
             });
 
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
                 Id = 3,
                 Name = "Electronics",
+                Icon = "fas fa-headphones",
             });
 
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
                 Id = 4,
                 Name = "Shoes",
+                Icon = "fas fa-shoe-prints"
             });
         }
 
