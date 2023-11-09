@@ -31,23 +31,25 @@ namespace ShopOnline.Api.Repositories
                                       CartId = cartItemToAddDto.CartId,
                                       ProductId = product.Id,
                                       Quantity = cartItemToAddDto.Quantity
+                                      
                                   }).SingleOrDefaultAsync();
 
-                if (item != null)
+                if (item is not null)
                 {
                     var result = await this.dbContext.CartItems.AddAsync(item);
                     await this.dbContext.SaveChangesAsync();
+                    var product = await this.dbContext.Products.FindAsync(result.Entity.ProductId);
                     return new CartItemDto
                     {
-                        Id = item.Id,
-                        ProductId = item.ProductId,
-                        Quantity = item.Quantity,
-                        CartId = item.CartId,
-                        ProductName = item.Product.Name,
-                        ProductDescription = item.Product.Description,
-                        ProductImageURL = item.Product.ImageURL,
-                        Price = item.Product.Price,
-                        TotalPrice = item.Product.Price * item.Quantity,
+                        Id = result.Entity.Id,
+                        ProductId = result.Entity.ProductId,
+                        Quantity = result.Entity.Quantity,
+                        CartId = result.Entity.CartId,
+                        ProductName = product.Name,
+                        ProductDescription = product.Description,
+                        ProductImageURL = product.ImageURL,
+                        Price = product.Price,
+                        TotalPrice = product.Price * result.Entity.Quantity,
                     };
                 }
             }
@@ -55,9 +57,28 @@ namespace ShopOnline.Api.Repositories
             return null;
         }
 
-        public Task<CartItem> DeleteItem(int id)
+        public async Task<CartItemDto> DeleteItem(int id)
         {
-            throw new NotImplementedException();
+            var item = await this.dbContext.CartItems.Include(x => x.Product).Where(x => x.Id == id).SingleOrDefaultAsync();
+
+            if (item is not null)
+            {
+                this.dbContext.CartItems.Remove(item);
+                await this.dbContext.SaveChangesAsync();
+            }
+
+            return new CartItemDto
+            {
+                Id = item.Id,
+                ProductId = item.ProductId,
+                Quantity = item.Quantity,
+                CartId = item.CartId,
+                ProductName = item.Product.Name,
+                ProductDescription = item.Product.Description,
+                ProductImageURL = item.Product.ImageURL,
+                Price = item.Product.Price,
+                TotalPrice = item.Product.Price * item.Quantity,
+            };
         }
 
         public async Task<CartItemDto> GetItem(int id)

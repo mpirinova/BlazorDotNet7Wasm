@@ -49,13 +49,13 @@ namespace ShopOnline.Api.Controllers
             try
             {
                 var cartItem = await this.shoppingCartRepository.GetItem(id);
-                if (cartItem == null)
+                if (cartItem is null)
                 {
                     return NotFound();
                 }
 
                 var product = await productRepository.GetProduct(cartItem.ProductId);
-                if (product == null)
+                if (product is null)
                 {
                     return NotFound();
                 }
@@ -75,19 +75,46 @@ namespace ShopOnline.Api.Controllers
             {
                 var newCartItem = await this.shoppingCartRepository.AddItem(cartItemToAddDto);
 
-                if (newCartItem == null)
+                if (newCartItem is null)
                 {
                     return NoContent();
                 }
 
                 var product = await productRepository.GetProduct(newCartItem.ProductId);
 
-                if (product == null)
+                if (product is null)
                 {
                     throw new Exception($"Something went wrong when attempting to retrieve product (productId:({cartItemToAddDto.ProductId})");
                 }
 
                 return CreatedAtAction(nameof(GetItem), new { id = newCartItem.Id }, newCartItem);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<CartItemDto>> DeleteItem(int id)
+        {
+            try
+            {
+                var cartItem = await this.shoppingCartRepository.DeleteItem(id);
+
+                if (cartItem is null)
+                {
+                    return NotFound();
+                }
+
+                var product = await this.productRepository.GetProduct(cartItem.ProductId);
+
+                if (product is null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(cartItem);
             }
             catch (Exception ex)
             {
