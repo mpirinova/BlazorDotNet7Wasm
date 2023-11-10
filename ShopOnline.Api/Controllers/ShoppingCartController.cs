@@ -128,7 +128,7 @@ namespace ShopOnline.Api.Controllers
             try
             {
                 var cartItem = await this.shoppingCartRepository.UpdateQuantity(id, cartItemQtyUpdateDto);
-                if (cartItem == null)
+                if (cartItem is null)
                 {
                     return NotFound();
                 }

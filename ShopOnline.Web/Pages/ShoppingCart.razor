@@ -1,6 +1,6 @@
 ﻿@page "/cart"
 
-@if (ShoppingCartItems == null && ErrorMessage == null)
+@if (ShoppingCartItems is null && ErrorMessage is null)
 {
     <DisplaySpinner></DisplaySpinner>
 }

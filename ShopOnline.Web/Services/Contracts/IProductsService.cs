@@ -7,5 +7,9 @@ namespace ShopOnline.Web.Services.Contracts
         Task<IEnumerable<ProductDto>> GetProducts();
 
         Task<ProductDto> GetProduct(int id);
+
+        Task<IEnumerable<ProductCategoryDto>> GetProductCategories();
+
+        Task<IEnumerable<ProductDto>> GetProductsByCategory(int categoryId);
     }
 }
