@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnline.Web", "ShopOnline.Web\ShopOnline.Web.csproj", "{6DB1787B-9507-4185-A9A9-56F27E534916}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnline.Web", "ShopOnline.Web\ShopOnline.Web.csproj", "{6DB1787B-9507-4185-A9A9-56F27E534916}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnline.Api", "ShopOnline.Api\ShopOnline.Api.csproj", "{2561FD24-DB71-4207-8622-DE281FA0324B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnline.Api", "ShopOnline.Api\ShopOnline.Api.csproj", "{2561FD24-DB71-4207-8622-DE281FA0324B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnline.Models", "ShopOnline.Models\ShopOnline.Models.csproj", "{EB8DF555-1A87-4BE3-B79A-11B8F2FB82B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnline.Models", "ShopOnline.Models\ShopOnline.Models.csproj", "{EB8DF555-1A87-4BE3-B79A-11B8F2FB82B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnline.Data", "ShopOnline.Data\ShopOnline.Data.csproj", "{0E2385F8-A93A-4D78-A1C3-79C59C0EF916}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnline.Data", "ShopOnline.Data\ShopOnline.Data.csproj", "{0E2385F8-A93A-4D78-A1C3-79C59C0EF916}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnline.Services", "ShopOnline.Services\ShopOnline.Services.csproj", "{9DEDA507-1D2A-4ACF-84B6-8B2FB7C5A914}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnline.Server", "ShopOnline.Server\ShopOnline.Server.csproj", "{CF5C1B29-1F24-40CB-A320-B09D9CF556F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{0E2385F8-A93A-4D78-A1C3-79C59C0EF916}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E2385F8-A93A-4D78-A1C3-79C59C0EF916}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E2385F8-A93A-4D78-A1C3-79C59C0EF916}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DEDA507-1D2A-4ACF-84B6-8B2FB7C5A914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DEDA507-1D2A-4ACF-84B6-8B2FB7C5A914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DEDA507-1D2A-4ACF-84B6-8B2FB7C5A914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DEDA507-1D2A-4ACF-84B6-8B2FB7C5A914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF5C1B29-1F24-40CB-A320-B09D9CF556F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF5C1B29-1F24-40CB-A320-B09D9CF556F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF5C1B29-1F24-40CB-A320-B09D9CF556F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF5C1B29-1F24-40CB-A320-B09D9CF556F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

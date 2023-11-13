@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using ShopOnline.Models.Dtos;
-using ShopOnline.Web.Services.Contracts;
+using ShopOnline.Services.Contracts;
 
 namespace ShopOnline.Web.Shared
 {

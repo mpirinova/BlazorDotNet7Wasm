@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShopOnline.Data.Data;
-using ShopOnline.Data.Entities;
-using ShopOnline.Data.Repositories.Contracts;
+using ShopOnline.Server.Data;
+using ShopOnline.Server.Entities;
+using ShopOnline.Server.Repositories.Contracts;
 using ShopOnline.Models.Dtos;
 
-namespace ShopOnline.Data.Repositories
+namespace ShopOnline.Server.Repositories
 {
     public class ProductsRepository : IProductsRepository
     {

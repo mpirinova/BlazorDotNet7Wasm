@@ -4,7 +4,7 @@ using ShopOnline.Services.Contracts;
 using System.Net.Http.Json;
 using System.Text;
 
-namespace ShopOnline.Web.Services
+namespace ShopOnline.Services
 {
     public class ShoppingCartService : IShoppingCartService
     {

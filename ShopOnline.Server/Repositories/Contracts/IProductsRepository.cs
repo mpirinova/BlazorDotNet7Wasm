@@ -1,7 +1,7 @@
-﻿using ShopOnline.Data.Entities;
+﻿using ShopOnline.Server.Entities;
 using ShopOnline.Models.Dtos;
 
-namespace ShopOnline.Data.Repositories.Contracts
+namespace ShopOnline.Server.Repositories.Contracts
 {
     public interface IProductsRepository
     {
