@@ -1,10 +1,11 @@
 ﻿@implements IDisposable
 @inject IShoppingCartService shoppingCartService
 
-<a href="cart" class="btn btn-info">
-    <i class="oi oi-cart"></i>&nbsp;Cart
-    <span class="badge bg-dark">@shoppingCartItemCount</span>
-</a>
+<MudBadge Content="@shoppingCartItemCount" Color="Color.Info" Overlap="true" Bordered="true" Class="mx-6 my-4">
+    <MudButton Href="cart" Color="Color.Info" Variant="Variant.Filled" DisableElevation="true">
+        <MudIcon Icon="@Icons.Material.Filled.ShoppingCart" />&nbsp;Cart
+    </MudButton>
+</MudBadge>
 
 @code {
     private int shoppingCartItemCount = 0;

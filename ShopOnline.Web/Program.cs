@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MudBlazor.Services;
 using ShopOnline.Web;
 using ShopOnline.Web.Services;
 using ShopOnline.Web.Services.Contracts;
@@ -9,6 +10,7 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7175/") });
+builder.Services.AddMudServices();
 builder.Services.AddScoped<IProductsService, ProductsService>();
 builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
 
