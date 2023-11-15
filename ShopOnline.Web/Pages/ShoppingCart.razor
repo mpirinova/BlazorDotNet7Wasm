@@ -2,7 +2,7 @@
 
 @if (ShoppingCartItems is null && ErrorMessage is null)
 {
-    <DisplaySpinner></DisplaySpinner>
+    <DisplaySpinner />
 }
 else if (ErrorMessage is not null)
 {
@@ -10,10 +10,45 @@ else if (ErrorMessage is not null)
 }
 else
 {
-    <h3 class="mb-5">Shopping Cart</h3>
+    <MudText Class="m-4" Typo="Typo.h4">Shopping Cart</MudText>
     @if (ShoppingCartItems.Count() > 0)
     {
-        <div class="row mb-5">
+        <MudGrid Class="mb-5">
+            <MudItem xs="12" md="9">
+                @foreach (var item in ShoppingCartItems)
+                {
+                    <MudGrid Class="mb-4">
+                        <MudItem xs="12" md="4">
+                            <MudImage Src="@item.ProductImageURL" Width="300" />
+                        </MudItem>
+                        <MudItem xs="12" md="8">
+                            <MudText Typo="Typo.h5">@item.ProductName</MudText>
+                            <MudText Typo="Typo.subtitle1" Class="mb-4">@item.ProductDescription</MudText>
+                            <MudItem>
+                                Price: <b>@item.Price.ToString("C")</b>
+                                <MudNumericField @bind-Value="item.Quantity" Width="100px" Variant="Variant.Outlined" @oninput="(() => UpdateQuantity(item.Id))" />
+                                <MudButton Variant="Variant.Outlined" Color="Color.Info" OnClick="(() => UpdateQuantityCartItem(item.Id, item.Quantity))">
+                                    Update Quantity
+                                </MudButton>
+                            </MudItem>
+                            <MudButton Color="Color.Error" Size="Size.Small" OnClick="(() => DeleteCartItem(item.Id))">
+                                <MudIcon Icon="@Icons.Material.Filled.Delete" />
+                            </MudButton>
+                        </MudItem>
+                    </MudGrid>
+                }
+            </MudItem>
+            <MudItem xs="12" md="3">
+                <h5>Cart Summary</h5>
+                <div Class="mt-2">
+                    <div>Total - (@TotalQuantity items)&nbsp;<b>@TotalPrice</b></div>
+                    <MudLink Href="checkout" Color="Color.Success">
+                        <MudIcon Icon="@Icons.Material.Filled.CreditCard" />&nbsp; Proceed to Checkout
+                    </MudLink>
+                </div>
+            </MudItem>
+        </MudGrid>
+        @* <div class="row mb-5">
             <div class="col-md-9">
                 @foreach (var item in ShoppingCartItems)
                 {
@@ -50,7 +85,7 @@ else
                     </a>
                 </div>
             </div>
-        </div>
+        </div> *@
     }
     else
     {

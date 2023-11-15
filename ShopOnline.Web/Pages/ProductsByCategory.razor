@@ -10,12 +10,11 @@ else if(ErrorMessage is not null)
 }
 else
 {
-    <h3>Products (@CategoryName)</h3>
-
+    <MudText Class="m-4" Typo="Typo.h3">Products (@CategoryName)</MudText>
     @if(Products.Count() > 0)
     {
-        <div class = "row mt-3">
+        <MudContainer class = "row mt-3">
           <DisplayProduct Products = "@Products"></DisplayProduct>
-        </div>
+        </MudContainer>
     }
 }

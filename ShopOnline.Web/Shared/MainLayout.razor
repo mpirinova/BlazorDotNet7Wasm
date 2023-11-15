@@ -7,7 +7,9 @@
 <MudLayout>
     <MudAppBar Color="Color.Primary">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-        ShopOnline
+        <MudLink Color="Color.Surface" Href="/" Underline="Underline.None">&nbsp;ShopOnline</MudLink>
+        <MudSpacer />
+        <CartMenu/>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu/>

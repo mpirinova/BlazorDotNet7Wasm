@@ -10,10 +10,8 @@ else
 {
     @foreach (var productCategory in ProductCategoryDtos)
     {
-        var link = "/productsByCategory/" + productCategory.Id;
-
         <div class="nav-item">
-            <MudNavLink Href="@link" Icon="@productCategory.Icon">
+            <MudNavLink Href="@($"/productsByCategory/{productCategory.Id}")" Icon="@productCategory.Icon">
                 &nbsp;@productCategory.Name
             </MudNavLink>
         </div>
